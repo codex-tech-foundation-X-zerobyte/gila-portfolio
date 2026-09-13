@@ -1,0 +1,36 @@
+import { useEffect, useState } from "react";
+
+/**
+ * Tracks which section is currently in view so the navbar can highlight
+ * the active link. Falls back gracefully if IntersectionObserver is
+ * unavailable.
+ */
+export function useActiveSection(sectionIds: string[]) {
+  const [activeId, setActiveId] = useState<string>(sectionIds[0] ?? "");
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]?.target.id) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [sectionIds]);
+
+  return activeId;
+}

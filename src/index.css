@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark mode (default) — deep blue-slate base, teal accent */
+  --color-bg: #0e1420;
+  --color-surface: #141c2b;
+  --color-surface-hover: #1a2436;
+  --color-border: #26314a;
+  --color-text: #e7ebf3;
+  --color-muted: #8c97af;
+  --color-accent: #45d9b4;
+  --color-accent-strong: #2fb997;
+}
+
+:root.light {
+  /* Light mode — soft paper base, same teal accent for consistency */
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f2f5;
+  --color-border: #dfe3ea;
+  --color-text: #131a26;
+  --color-muted: #5b6579;
+  --color-accent: #1a9b7d;
+  --color-accent-strong: #147a63;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+code,
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Visible focus states for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
