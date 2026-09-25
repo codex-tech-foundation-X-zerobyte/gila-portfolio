@@ -16,6 +16,6 @@ export const profile: Profile = {
   email: "abanggila1004@gmail.com",
   phone: "+234 701 751 2437",
   profileImage: "/Gila.jpeg", // [PROFILE IMAGE URL] — add a photo to /public and reference it here, e.g. "/profile.jpg"
-  resumeUrl: "", // [YOUR CV/RESUME LINK] — add a hosted PDF link to enable the "Download CV" button
+  resumeUrl: "/cv.pdf", // [YOUR CV/RESUME LINK] — add a hosted PDF link to enable the "Download CV" button
   availability: "Available for freelance / open to work",
 };
