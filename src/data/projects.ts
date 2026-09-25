@@ -33,7 +33,7 @@ export const projects: Project[] = [
     ],
     liveUrl: "", // [LIVE URL]
     githubUrl: "https://github.com/abanggila1004-tech",
-    image: "", // [PROJECT IMAGE] — add a screenshot to /public and reference it here
+    image: "codex.jpeg", // [PROJECT IMAGE] — add a screenshot to /public and reference it here
     status: "In Progress",
   },
   // Add your next project here, following the same shape.
